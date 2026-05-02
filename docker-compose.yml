@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  # ⚡ Bun Backend Service
+  backend-service:
+    build: ./backend
+    ports:
+      - "8080:3000" # Local machine ke 8080 par backend chalega
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+
+  # 🌐 Next.js Frontend Service
+  frontend-service:
+    build: ./frontend
+    ports:
+      - "3000:3000" # Local machine ke 3000 par frontend chalega
+    depends_on:
+      - backend-service # Pehle backend start hoga, fir frontend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development

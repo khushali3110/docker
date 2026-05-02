@@ -1,0 +1,17 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Bun Backend API Server",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "start": "bun run src/index.ts",
+    "build": "bun build src/index.ts --outdir dist"
+  },
+  "dependencies": {
+    "elysia": "latest"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  }
+}
